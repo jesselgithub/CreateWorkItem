@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+    <Metadata>
+        <Identity Id="SimianVsix.Microsoft.8202ed4c-e8ef-4eb2-abf7-c4a057914fb3" Version="1.0" Language="en-US" Publisher="Jessel" />
+        <DisplayName>SimianVsix</DisplayName>
+        <Description xml:space="preserve">Empty VSIX Project.</Description>
+    </Metadata>
+    <Installation>
+        <InstallationTarget Version="[11.0,12.0)" Id="Microsoft.VisualStudio.IntegratedShell" />
+        <InstallationTarget Version="[11.0,12.0)" Id="Microsoft.VisualStudio.Pro" />
+        <InstallationTarget Version="[11.0,12.0)" Id="Microsoft.VisualStudio.Premium" />
+        <InstallationTarget Version="[11.0,12.0)" Id="Microsoft.VisualStudio.Ultimate" />
+        <InstallationTarget Version="[11.0,12.0)" Id="Microsoft.VisualStudio.VSWinExpress" />
+        <InstallationTarget Version="[11.0,12.0)" Id="Microsoft.VisualStudio.VPDExpress" />
+        <InstallationTarget Version="[11.0,12.0)" Id="Microsoft.VisualStudio.VWDExpress" />
+        <InstallationTarget Version="[11.0,12.0)" Id="Microsoft.VisualStudio.VSLS" />
+        <InstallationTarget Version="[11.0,12.0)" Id="Microsoft.VisualStudio.VSWinDesktopExpress" />
+    </Installation>
+    <Dependencies>
+        <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="4.5" />
+    </Dependencies>
+</PackageManifest>
