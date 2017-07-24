@@ -32,7 +32,9 @@ namespace CreateWorkItem
                 //TfsTeamProjectCollection targettfs = new TfsTeamProjectCollection(new Uri(tfsuri), tfsCreds);
                 try
                 {
+                    Console.WriteLine("Authenticating...");
                     tfs.Authenticate();
+                    Console.WriteLine("Authentication Succeeded.");
                 }
                 catch (Exception e)
                 {
@@ -40,10 +42,14 @@ namespace CreateWorkItem
                     return;
                 }
 
+                Console.WriteLine("Getting WorkItemStore...");
                 WorkItemStore wis = tfs.GetService<WorkItemStore>();
+                Console.WriteLine("Getting TIA...");
                 Project teamProject = wis.Projects["TIA"];
+                Console.WriteLine($"Getting WorkItemTypes = {wiType}");
                 WorkItemType workItemType = teamProject.WorkItemTypes[wiType];
 
+                /*
                 foreach (WorkItemType temp in teamProject.WorkItemTypes)
                 {
                     if (temp.Name.ToLower().Equals(wiType.ToLower()))
@@ -51,27 +57,11 @@ namespace CreateWorkItem
                         wiType = temp.Name;
                     }
                 }
+                */
 
                 WorkItem srcWorkItemwi = wis.GetWorkItem(srcWorkItemId);
                 string srcTitle = srcWorkItemwi.Title;
                 string srcType = srcWorkItemwi.Type.Name;
-
-                if (srcType != "Request")
-                {
-                    Console.WriteLine("CreateChildWI works only for Requests!");
-                    return;
-                }
-                WorkItemLinkTypeEnd wiTypeEnd;
-                wis.WorkItemLinkTypes.LinkTypeEnds.TryGetByName("Duplicates", out wiTypeEnd);
-
-                WorkItem newWorkItem = new WorkItem(workItemType);
-                newWorkItem.Title = $"{titleprefix}{externalidsuffix}{srcTitle}";
-                newWorkItem.AreaPath = area;
-                newWorkItem.Fields["Assigned To"].Value = assignedtoname;
-                newWorkItem.Fields["Feature Type"].Value = "Internal";
-                newWorkItem.IterationPath = iterationPath;
-                var wiLink = new WorkItemLink(wiTypeEnd, srcWorkItemId);
-                newWorkItem.WorkItemLinks.Add(wiLink);
                 bool linkedfeaturesalready = false;
                 foreach (WorkItemLink link in srcWorkItemwi.WorkItemLinks)
                 {
@@ -88,10 +78,27 @@ namespace CreateWorkItem
                     Console.WriteLine($"Error: Found linked Features!!! ");
                     return;
                 }
+                if (srcType != "Request")
+                {
+                    Console.WriteLine("CreateChildWI works only for Requests!");
+                    return;
+                }
+                WorkItemLinkTypeEnd wiTypeEnd;
+                wis.WorkItemLinkTypes.LinkTypeEnds.TryGetByName("Duplicates", out wiTypeEnd);
+
+                WorkItem newWorkItem = new WorkItem(workItemType);
+                newWorkItem.Title = $"{titleprefix}{externalidsuffix}{srcTitle}";
+                newWorkItem.AreaPath = area;
+                newWorkItem.Fields["Assigned To"].Value = assignedtoname;
+                newWorkItem.Fields["Feature Type"].Value = "Internal";
+                newWorkItem.IterationPath = iterationPath;
+                var wiLink = new WorkItemLink(wiTypeEnd, srcWorkItemId);
+                newWorkItem.WorkItemLinks.Add(wiLink);
+
                 var issues = newWorkItem.Validate();
                 foreach (var issue in issues)
                 {
-
+                    Console.WriteLine($"# Validation Issue of type {issue.GetType().FullName} - {issue}");
                 }
                 Console.WriteLine($"Error: Found {issues.Count} issues during validation of Feature Workitem!");
                 newWorkItem.Save();

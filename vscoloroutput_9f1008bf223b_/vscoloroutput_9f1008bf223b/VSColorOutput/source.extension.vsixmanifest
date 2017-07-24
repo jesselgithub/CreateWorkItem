@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Vsix xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2010">
+    <Identifier Id="CD56B219-38CB-482A-9B2D-7582DF4AAF1E">
+        <Name>Visual Studio GUI for Simian</Name>
+        <Author>Jessel Rebello</Author>
+        <Version>1.4.5</Version>
+        <Description xml:space="preserve">Simian VS UI Tool.
+Runs Simian Tool after build event and displays in Output window in a Simian Tab. To Run just build. ;-)</Description>
+        <Locale>1033</Locale>
+        <MoreInfoUrl>https://workspace.automation.siemens.com/content/10003182/default.aspx</MoreInfoUrl>
+        <License>none.txt</License>
+        <GettingStartedGuide>https://workspace.automation.siemens.com/content/10003705/ImpExpMig/default.aspx</GettingStartedGuide>
+        <Icon>icon.ico</Icon>
+        <PreviewImage>IMG_0532.JPG</PreviewImage>
+        <InstalledByMsi>false</InstalledByMsi>
+        <SupportedProducts>
+            <VisualStudio Version="10.0">
+                <Edition>Ultimate</Edition>
+                <Edition>Premium</Edition>
+                <Edition>Pro</Edition>
+                <Edition>Express_All</Edition>
+                <Edition>IntegratedShell</Edition>
+            </VisualStudio>
+        </SupportedProducts>
+        <SupportedFrameworkRuntimeEdition MinVersion="4.0" MaxVersion="4.0" />
+        <SystemComponent>false</SystemComponent>
+    </Identifier>
+    <References>
+        <Reference Id="Microsoft.VisualStudio.MPF" MinVersion="10.0">
+            <Name>Visual Studio MPF</Name>
+        </Reference>
+    </References>
+    <Content>
+        <VsPackage>|%CurrentProject%;PkgdefProjectOutputGroup|</VsPackage>
+        <MefComponent>|%CurrentProject%|</MefComponent>
+    </Content>
+</Vsix>
