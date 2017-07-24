@@ -2,7 +2,6 @@
 using Microsoft.TeamFoundation.Client;
 using Microsoft.TeamFoundation.WorkItemTracking.Client;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace CreateWorkItem
 {
@@ -58,11 +57,14 @@ namespace CreateWorkItem
                     }
                 }
                 */
-
+                Console.WriteLine($"Getting WorkItem = {srcWorkItemId}");
                 WorkItem srcWorkItemwi = wis.GetWorkItem(srcWorkItemId);
+
                 string srcTitle = srcWorkItemwi.Title;
                 string srcType = srcWorkItemwi.Type.Name;
                 bool linkedfeaturesalready = false;
+
+                Console.WriteLine($"Checking Links({srcWorkItemwi.WorkItemLinks.Count}) of WorkItem ({srcWorkItemId})");
                 foreach (WorkItemLink link in srcWorkItemwi.WorkItemLinks)
                 {
                     int target = link.TargetId;
@@ -86,6 +88,7 @@ namespace CreateWorkItem
                 WorkItemLinkTypeEnd wiTypeEnd;
                 wis.WorkItemLinkTypes.LinkTypeEnds.TryGetByName("Duplicates", out wiTypeEnd);
 
+                Console.WriteLine($"Creating New Linked WorkItem for {srcWorkItemId}");
                 WorkItem newWorkItem = new WorkItem(workItemType);
                 newWorkItem.Title = $"{titleprefix}{externalidsuffix}{srcTitle}";
                 newWorkItem.AreaPath = area;
@@ -95,12 +98,15 @@ namespace CreateWorkItem
                 var wiLink = new WorkItemLink(wiTypeEnd, srcWorkItemId);
                 newWorkItem.WorkItemLinks.Add(wiLink);
 
+                Console.WriteLine($"Validating New Linked WorkItem.");
                 var issues = newWorkItem.Validate();
+                Console.WriteLine($"Validation Completed with {issues.Count} issues.");
                 foreach (var issue in issues)
                 {
                     Console.WriteLine($"# Validation Issue of type {issue.GetType().FullName} - {issue}");
                 }
                 Console.WriteLine($"Error: Found {issues.Count} issues during validation of Feature Workitem!");
+                Console.WriteLine($"Saving New Linked WorkItem.");
                 newWorkItem.Save();
                 Console.WriteLine($"Created New Feature with id: {newWorkItem.Id}");
 

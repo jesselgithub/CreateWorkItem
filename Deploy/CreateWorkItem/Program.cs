@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Runtime.InteropServices;
-using System.Xml.Schema;
 using Microsoft.TeamFoundation.WorkItemTracking.Client;
 
 namespace CreateWorkItem
@@ -61,7 +60,7 @@ N O T E : Use double quotes when the argument has spaces...
                 int idd = Convert.ToInt32(args[0]);
                 //ParseArguments();
                 TfsHandler.CreateWorkItem(idd,
-                    "https://iiaastfs.ww004.siemens.net:443/tfs/tia",
+                    "https://venus.tfs.siemens.net:443/tfs/tia",
                     args[3],
                     "Feature",
                     "RQ#",
