@@ -1,0 +1,151 @@
+Responsible Team                   | Siemens.SSF.Common.ResponsibleTeam                      | HasAllowedValues:False  | Required:False  |          default:Rebello, Jessel (CT DD DS AA DF-PD FH ES)
+Earliest Detection In              | Siemens.Industry.Request.EarliestDetectionIn            | HasAllowedValues:True   | Required:False  |                                                   default:
+Modifying Server Task              | Siemens.Industry.Request.ModifyingServerTask            | HasAllowedValues:False  | Required:False  |                                                   default:
+Unique Identifier                  | Siemens.Industry.Common.Unique.Identifier               | HasAllowedValues:False  | Required:False  |                                                   default:
+Root Cause                         | Microsoft.VSTS.CMMI.RootCause                           | HasAllowedValues:True   | Required:False  |                                                   default:
+Restriction Tracking               | Siemens.Industry.Request.RestrictionTracking            | HasAllowedValues:True   | Required:False  |                                                   default:
+Restriction Title                  | Siemens.Industry.Request.RestrictionTitle               | HasAllowedValues:False  | Required:False  |                                                   default:
+Impact                             | Siemens.Industry.Common.Impact                          | HasAllowedValues:False  | Required:False  |                                                   default:
+All PRs                            | Siemens.Industry.Request.AllPRs                         | HasAllowedValues:False  | Required:False  |                                                   default:
+Solution                           | Siemens.Industry.Common.Solution                        | HasAllowedValues:True   | Required:False  |                                                   default:
+Release Branches                   | Siemens.Industry.Request.ReleaseBranches                | HasAllowedValues:False  | Required:False  |                                                   default:
+Configuration Name                 | Siemens.Industry.Request.ConfigurationName              | HasAllowedValues:False  | Required:False  |                                                   default:
+Investigation By                   | Siemens.Industry.Common.InvestigationBy                 | HasAllowedValues:False  | Required:False  |                                                   default:
+Investigation Date                 | Siemens.Industry.Common.InvestigationDate               | HasAllowedValues:False  | Required:False  |                                                   default:
+Source PR                          | Siemens.Industry.Request.SourcePR                       | HasAllowedValues:False  | Required:False  |                                                   default:
+External Reference ID              | Siemens.Industry.Common.ExternalRefID                   | HasAllowedValues:False  | Required:False  |                                                   default:
+Global Tags                        | Siemens.Industry.Common.GlobalTags                      | HasAllowedValues:False  | Required:False  |                                                   default:
+Project Tags                       | Siemens.Industry.Common.ProjectTags                     | HasAllowedValues:False  | Required:False  |                                                   default:
+LatestCommitteeDecisionDate        | Siemens.Industry.Common.LatestCommitteeDecisionDate     | HasAllowedValues:False  | Required:False  |                                                   default:
+ClusterValue                       | Siemens.Industry.Request.ClusterValue                   | HasAllowedValues:True   | Required:False  |                                                   default:
+ClusterList                        | Siemens.Industry.Request.ClusterList                    | HasAllowedValues:True   | Required:False  |                                                   default:
+Completed By                       | Siemens.Industry.Common.CompletedBy                     | HasAllowedValues:False  | Required:False  |                                                   default:
+Completed Date                     | Siemens.Industry.Common.CompletedDate                   | HasAllowedValues:False  | Required:False  |                                                   default:
+Synchronization Rev                | Siemens.Industry.Synchronization.Rev                    | HasAllowedValues:False  | Required:False  |                                                   default:
+Synchronization Lock               | Siemens.Industry.Synchronization.Lock                   | HasAllowedValues:True   | Required:False  |                                               default:none
+Reflected Id                       | Siemens.Industry.Common.IntegrationReflectedId          | HasAllowedValues:False  | Required:False  |                                                   default:
+Reflected Source                   | Siemens.Industry.Common.IntegrationReflectedSourceGuid  | HasAllowedValues:False  | Required:False  |                                                   default:
+Restriction Products List          | Siemens.Industry.Request.RestrictionProductsList        | HasAllowedValues:False  | Required:False  |                                                   default:
+Values Verification                | Siemens.Industry.Common.ValuesVerification              | HasAllowedValues:False  | Required:False  |                                                   default:
+Legacy Assigned To                 | Siemens.Industry.Common.LegacyAssignedTo                | HasAllowedValues:False  | Required:False  |                                                   default:
+Legacy Originator                  | Siemens.Industry.Common.LegacyOriginator                | HasAllowedValues:False  | Required:False  |                                                   default:
+Legacy Created Date                | Siemens.Industry.Common.LegacyCreatedDate               | HasAllowedValues:False  | Required:False  |                                                   default:
+Reason Verification                | Siemens.Industry.Request.ReasonVerification             | HasAllowedValues:False  | Required:False  |                                                   default:
+IsInstance                         | Siemens.Industry.Request.IsInstance                     | HasAllowedValues:True   | Required:False  |                                                 default:No
+Restriction Overwrite              | Siemens.Industry.Request.RestrictionOverwrite           | HasAllowedValues:True   | Required:False  |                                                 default:No
+Restriction Workaround             | Siemens.Industry.Request.RestrictionWorkaround          | HasAllowedValues:False  | Required:False  |                                                   default:
+Restriction Description            | Siemens.Industry.Request.RestrictionDescription         | HasAllowedValues:False  | Required:False  |                                                   default:
+Restriction Products               | Siemens.Industry.Request.RestrictionProducts            | HasAllowedValues:False  | Required:False  |                                                   default:
+Restriction Keyword                | Siemens.Industry.Request.RestrictionKeyword             | HasAllowedValues:False  | Required:False  |                                                   default:
+Repro Steps                        | Microsoft.VSTS.TCM.ReproSteps                           | HasAllowedValues:False  | Required:False  |                                                   default:
+System Info                        | Microsoft.VSTS.TCM.SystemInfo                           | HasAllowedValues:False  | Required:False  |                                                   default:
+MergedToReleaseBranch              | Siemens.Industry.Request.MergedToReleaseBranch          | HasAllowedValues:True   | Required:False  |                                                 default:No
+ARTS+ Attachment IDs               | Siemens.Industry.Migration.Attachments                  | HasAllowedValues:False  | Required:False  |                                                   default:
+External System                    | Siemens.Industry.Common.ExternalSystem                  | HasAllowedValues:False  | Required:False  |                                                   default:
+Legacy System                      | Siemens.Industry.Common.LegacySystem                    | HasAllowedValues:False  | Required:False  |                                                   default:
+Legacy Id                          | Siemens.Industry.Common.LegacyId                        | HasAllowedValues:False  | Required:False  |                                                   default:
+ParentDefect                       | Siemens.Industry.Request.IsRootRequest                  | HasAllowedValues:True   | Required:False  |                                                default:Yes
+Documentation Id                   | Siemens.Industry.Common.DocumentationId                 | HasAllowedValues:False  | Required:False  |                                                   default:
+RQ User Tags                       | Siemens.Industry.Common.UserTags                        | HasAllowedValues:False  | Required:False  |                                                   default:
+LatestCommitteePreparation         | Siemens.Industry.Common.LatestCommitteePreparation      | HasAllowedValues:False  | Required:False  |                                                   default:
+LatestCommitteeDecision            | Siemens.Industry.Common.LatestCommitteeDecision         | HasAllowedValues:False  | Required:False  |                                                   default:
+Suggestion                         | Siemens.SSF.Common.Suggestion                           | HasAllowedValues:True   | Required:False  |                                                   default:
+Committee                          | Siemens.SSF.Common.Committee                            | HasAllowedValues:True   | Required:False  |                                                   default:
+Integrated In Component Release    | Siemens.Industry.Request.IntegratedInComponentRelease   | HasAllowedValues:False  | Required:False  |                                                   default:
+Integrated In Product Release      | Siemens.Industry.Request.IntegratedInProductRelease     | HasAllowedValues:False  | Required:False  |                                                   default:
+Fixed In Component Release         | Siemens.Industry.Request.FixedInComponentRelease        | HasAllowedValues:False  | Required:False  |                                                   default:
+Fixed In Product Release           | Siemens.Industry.Request.FixedInProductRelease          | HasAllowedValues:False  | Required:False  |                                                   default:
+BranchCurrent                      | Siemens.Industry.Request.CurrentBranch                  | HasAllowedValues:False  | Required:False  |                                                   default:
+BranchCheckin                      | Siemens.Industry.Request.BranchOfCheckin                | HasAllowedValues:False  | Required:False  |                                                   default:
+To be fixed in Component Version   | Siemens.Industry.Request.ToBeFixedInComponentVersion    | HasAllowedValues:False  | Required:False  |                                                   default:
+To be fixed in ComponentPath Id    | Siemens.Industry.Request.ToBeFixedInComponentPathId     | HasAllowedValues:False  | Required:False  |                                     default:194581\1060761
+To be fixed in ComponentPath       | Siemens.Industry.Request.ToBeFixedInComponentPath       | HasAllowedValues:False  | Required:False  |  default:PE_40_Frame Application\Global Search and Replace
+To be fixed in SubComponent Id     | Siemens.Industry.Request.ToBeFixedInSubComponentId      | HasAllowedValues:False  | Required:False  |                                            default:1060761
+To be fixed in SubComponent        | Siemens.Industry.Request.ToBeFixedInSubComponent        | HasAllowedValues:True   | Required:False  |                          default:Global Search and Replace
+To be fixed in Component Id        | Siemens.Industry.Request.ToBeFixedInComponentId         | HasAllowedValues:False  | Required:False  |                                             default:194581
+To be fixed in Component           | Siemens.Industry.Request.ToBeFixedInComponent           | HasAllowedValues:True   | Required:False  |                            default:PE_40_Frame Application
+To be fixed in Product Version     | Siemens.Industry.Request.ToBeFixedInProductVersion      | HasAllowedValues:False  | Required:False  |                                                   default:
+To be fixed in Product Id          | Siemens.Industry.Request.ToBeFixedInProductId           | HasAllowedValues:False  | Required:False  |                                             default:194204
+To be fixed in Product             | Siemens.Industry.Request.ToBeFixedInProduct             | HasAllowedValues:False  | Required:False  |                                         default:DO_NOT_USE
+To be fixed in Location            | Siemens.Industry.Request.ToBeFixedLocation              | HasAllowedValues:True   | Required:False  |                                                   default:
+To be fixed in Branch              | Siemens.Industry.Request.ToBeFixedInBranch              | HasAllowedValues:False  | Required:False  |                                                   default:
+Tracking                           | Siemens.Industry.Request.Tracking                       | HasAllowedValues:True   | Required:False  |                                                   default:
+Prio                               | Siemens.Industry.Common.Priority                        | HasAllowedValues:True   | Required:False  |                                                   default:
+Component Build                    | Siemens.Industry.Common.ComponentBuild                  | HasAllowedValues:False  | Required:False  |                                                   default:
+Component Release                  | Siemens.Industry.Common.ComponentRelease                | HasAllowedValues:False  | Required:False  |                                                   default:
+Component Version                  | Siemens.Industry.Common.ComponentVersion                | HasAllowedValues:False  | Required:False  |                                                   default:
+Product Build                      | Siemens.Industry.Common.ProductBuild                    | HasAllowedValues:False  | Required:False  |                                                   default:
+Product Release                    | Siemens.Industry.Common.ProductRelease                  | HasAllowedValues:False  | Required:False  |                                                   default:
+Product Version                    | Siemens.Industry.Common.ProductVersion                  | HasAllowedValues:False  | Required:True   |                                                  default:?
+SubComponent Id                    | Siemens.Industry.Common.SubComponentId                  | HasAllowedValues:False  | Required:False  |                                            default:1060761
+SubComponent                       | Siemens.Industry.Common.SubComponent                    | HasAllowedValues:True   | Required:False  |                          default:Global Search and Replace
+ComponentPath Id                   | Siemens.Industry.Common.ComponentPathId                 | HasAllowedValues:False  | Required:False  |                                     default:194581\1060761
+ComponentPath                      | Siemens.Industry.Common.ComponentPath                   | HasAllowedValues:False  | Required:False  |  default:PE_40_Frame Application\Global Search and Replace
+Component Id                       | Siemens.Industry.Common.ComponentId                     | HasAllowedValues:False  | Required:False  |                                             default:194581
+Component                          | Siemens.Industry.Common.Component                       | HasAllowedValues:True   | Required:True   |                            default:PE_40_Frame Application
+Product Id                         | Siemens.Industry.Common.ProductId                       | HasAllowedValues:False  | Required:True   |                                             default:194204
+Product                            | Siemens.Industry.Common.Product                         | HasAllowedValues:True   | Required:True   |                                         default:DO_NOT_USE
+Project Id                         | Siemens.Industry.Common.ProjectId                       | HasAllowedValues:False  | Required:False  |                                             default:193954
+Project                            | Siemens.Industry.Common.Project                         | HasAllowedValues:True   | Required:False  |                                   default:STEP7_Innovation
+Original Severity                  | Siemens.Industry.Common.OriginalSeverity                | HasAllowedValues:False  | Required:True   |                                                  default:4
+Original Type of Request           | Siemens.Industry.Request.OriginalRequestType            | HasAllowedValues:False  | Required:True   |                                             default:Defect
+Type of Request                    | Siemens.Industry.Request.RequestType                    | HasAllowedValues:True   | Required:True   |                                             default:Defect
+FoundIn                            | Siemens.Industry.Request.FoundIn                        | HasAllowedValues:True   | Required:True   |                                                  default:?
+Stakeholder                        | Siemens.Industry.Request.Stakeholder                    | HasAllowedValues:True   | Required:True   |                                        default:Development
+Request ID                         | Siemens.Industry.Request.CommonId                       | HasAllowedValues:False  | Required:False  |                                            default:2417043
+Category                           | Siemens.Industry.Common.Category                        | HasAllowedValues:True   | Required:False  |                                                   default:
+Found In                           | Microsoft.VSTS.Build.FoundIn                            | HasAllowedValues:True   | Required:False  |                                                   default:
+Severity                           | Microsoft.VSTS.Common.Severity                          | HasAllowedValues:True   | Required:True   |                                                  default:4
+Resolution (Siemens)               | Siemens.SSF.Common.Resolution                           | HasAllowedValues:False  | Required:False  |                                                   default:
+Due Date                           | Microsoft.VSTS.Scheduling.DueDate                       | HasAllowedValues:False  | Required:False  |                                                   default:
+Priority                           | Microsoft.VSTS.Common.Priority                          | HasAllowedValues:True   | Required:False  |                                                   default:
+Effort (Hours)                     | Siemens.SSF.Custom.EstimatedEffort                      | HasAllowedValues:False  | Required:False  |                                                   default:
+Owner                              | Siemens.SSF.Common.Owner                                | HasAllowedValues:True   | Required:True   |          default:Rebello, Jessel (CT DD DS AA DF-PD FH ES)
+External ID                        | Siemens.SSF.Common.ExternalID                           | HasAllowedValues:False  | Required:False  |                                                   default:
+Completed Work                     | Microsoft.VSTS.Scheduling.CompletedWork                 | HasAllowedValues:False  | Required:False  |                                                   default:
+Original Estimate                  | Microsoft.VSTS.Scheduling.OriginalEstimate              | HasAllowedValues:False  | Required:False  |                                                   default:
+Start Date                         | Microsoft.VSTS.Scheduling.StartDate                     | HasAllowedValues:False  | Required:False  |                                                   default:
+Closed By                          | Microsoft.VSTS.Common.ClosedBy                          | HasAllowedValues:False  | Required:False  |                                                   default:
+Integration Build                  | Microsoft.VSTS.Build.IntegrationBuild                   | HasAllowedValues:True   | Required:False  |                                                   default:
+Closed Date                        | Microsoft.VSTS.Common.ClosedDate                        | HasAllowedValues:False  | Required:False  |                                                   default:
+Resolved Reason                    | Microsoft.VSTS.Common.ResolvedReason                    | HasAllowedValues:True   | Required:False  |                                                   default:
+Resolved By                        | Microsoft.VSTS.Common.ResolvedBy                        | HasAllowedValues:False  | Required:False  |                                                   default:
+Resolved Date                      | Microsoft.VSTS.Common.ResolvedDate                      | HasAllowedValues:False  | Required:False  |                                                   default:
+Activated By                       | Microsoft.VSTS.Common.ActivatedBy                       | HasAllowedValues:False  | Required:False  |                                                   default:
+Activated Date                     | Microsoft.VSTS.Common.ActivatedDate                     | HasAllowedValues:False  | Required:False  |                                                   default:
+State Change Date                  | Microsoft.VSTS.Common.StateChangeDate                   | HasAllowedValues:False  | Required:False  |                               default:7/28/2017 9:58:53 AM
+Remaining Work                     | Microsoft.VSTS.Scheduling.RemainingWork                 | HasAllowedValues:False  | Required:False  |                                                   default:
+Value                              | Siemens.SSF.Common.Value                                | HasAllowedValues:False  | Required:False  |                                                   default:
+Stack Rank                         | Microsoft.VSTS.Common.StackRank                         | HasAllowedValues:False  | Required:False  |                                                   default:
+Tags (Siemens)                     | Siemens.SSF.Common.Tags                                 | HasAllowedValues:False  | Required:False  |                                                   default:
+Board Lane                         | System.BoardLane                                        | HasAllowedValues:False  | Required:False  |                                                   default:
+Board Column Done                  | System.BoardColumnDone                                  | HasAllowedValues:False  | Required:False  |                                              default:False
+Board Column                       | System.BoardColumn                                      | HasAllowedValues:False  | Required:False  |                                            default:Created
+Tags                               | System.Tags                                             | HasAllowedValues:False  | Required:False  |                                                   default:
+Related Link Count                 | System.RelatedLinkCount                                 | HasAllowedValues:False  | Required:False  |                                                  default:0
+History                            | System.History                                          | HasAllowedValues:False  | Required:False  |                                                   default:
+Description                        | System.Description                                      | HasAllowedValues:False  | Required:False  |                                               default:<br>
+Created By                         | System.CreatedBy                                        | HasAllowedValues:True   | Required:True   |          default:Rebello, Jessel (CT DD DS AA DF-PD FH ES)
+Created Date                       | System.CreatedDate                                      | HasAllowedValues:False  | Required:False  |                               default:7/28/2017 9:58:53 AM
+Work Item Type                     | System.WorkItemType                                     | HasAllowedValues:True   | Required:True   |                                            default:Request
+Assigned To                        | System.AssignedTo                                       | HasAllowedValues:True   | Required:True   |          default:Rebello, Jessel (CT DD DS AA DF-PD FH ES)
+Reason                             | System.Reason                                           | HasAllowedValues:False  | Required:True   |                                                default:New
+Changed By                         | System.ChangedBy                                        | HasAllowedValues:False  | Required:False  |          default:Rebello, Jessel (CT DD DS AA DF-PD FH ES)
+Rev                                | System.Rev                                              | HasAllowedValues:False  | Required:False  |                                                  default:2
+Watermark                          | System.Watermark                                        | HasAllowedValues:False  | Required:False  |                                            default:9668545
+Authorized Date                    | System.AuthorizedDate                                   | HasAllowedValues:False  | Required:False  |                              default:7/28/2017 10:03:35 AM
+State                              | System.State                                            | HasAllowedValues:True   | Required:True   |                                            default:Created
+Title                              | System.Title                                            | HasAllowedValues:False  | Required:True   |                              default:WorkItem Tool Test RQ
+Authorized As                      | System.AuthorizedAs                                     | HasAllowedValues:False  | Required:False  |                                   default:FCT-ASSIST-Venus
+Area ID                            | System.AreaId                                           | HasAllowedValues:False  | Required:True   |                                              default:71729
+ID                                 | System.Id                                               | HasAllowedValues:False  | Required:False  |                                            default:2417043
+Changed Date                       | System.ChangedDate                                      | HasAllowedValues:False  | Required:False  |                              default:7/28/2017 10:03:35 AM
+Revised Date                       | System.RevisedDate                                      | HasAllowedValues:False  | Required:False  |                               default:1/1/9999 12:00:00 AM
+Area Path                          | System.AreaPath                                         | HasAllowedValues:False  | Required:True   |          default:TIA\Requests\193954\194204\194581\1060761
+Node Name                          | System.NodeName                                         | HasAllowedValues:False  | Required:False  |                                            default:1060761
+Attached File Count                | System.AttachedFileCount                                | HasAllowedValues:False  | Required:False  |                                                  default:0
+Hyperlink Count                    | System.HyperLinkCount                                   | HasAllowedValues:False  | Required:False  |                                                  default:0
+Team Project                       | System.TeamProject                                      | HasAllowedValues:False  | Required:False  |                                                default:TIA
+External Link Count                | System.ExternalLinkCount                                | HasAllowedValues:False  | Required:False  |                                                  default:0
+Iteration ID                       | System.IterationId                                      | HasAllowedValues:False  | Required:True   |                                             default:124061
+Iteration Path                     | System.IterationPath                                    | HasAllowedValues:False  | Required:True   |          default:TIA\Device Integration\2017-05 (May-June)
