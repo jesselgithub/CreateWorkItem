@@ -8,7 +8,7 @@ namespace CreateFeatures
 {
     internal class TfsHandler : IDisposable
     {
-        private string titleprefix = "#RQ";
+        private string titleprefix = "RQ#";
         private TfsTeamProjectCollection m_TfsConnection;
         private WorkItemStore m_WorkItemStore;
         private Project m_TeamProject;
@@ -92,8 +92,8 @@ namespace CreateFeatures
                 IterationPath = incPath
             };
 
-            var f = GetFields(newWorkItem);
-            File.WriteAllText("Feature.txt", f);
+            //var f = GetFields(newWorkItem);
+            //File.WriteAllText("Feature.txt", f);
 
             newWorkItem.Fields["Assigned To"].Value = assignedtoname;
             newWorkItem.Fields["Feature Type"].Value = "Internal";
@@ -122,7 +122,7 @@ namespace CreateFeatures
             Console.WriteLine($@"Created New Feature with id: {newWorkItem.Id}");
             comment = $@"-->{newWorkItem.Id}(F)" + (createTask ? $"-->{taskId}(T)" : string.Empty);
 
-            return false;
+            return true;
         }
 
         private static string GetFields(WorkItem workItem)
@@ -143,17 +143,17 @@ namespace CreateFeatures
             {
                 WorkItem newTask = new WorkItem(m_TeamProject.WorkItemTypes["Task"])
                 {
-                    Title = $@"IMPL: {newWorkItem.Title}",
+                    Title = $@"Analysis: {newWorkItem.Title}",
                     AreaPath = newWorkItem.AreaPath,
                     IterationPath = newWorkItem.IterationPath
                 };
                 newTask.Fields["Assigned To"].Value = newWorkItem.Fields["Assigned To"].Value;
                 try
                 {
-                    var f = GetFields(newWorkItem);
-                    File.WriteAllText("Task.txt", f);
+                    //var f = GetFields(newWorkItem);
+                    //File.WriteAllText("Task.txt", f);
 
-                    newTask.Fields["Task Subtype"].Value = "Implementation";
+                    newTask.Fields["Task Subtype"].Value = "Analysis";
                     newTask.Fields["Original Estimate"].Value = originalEstimateEffort;
                     newTask.Fields["Remaining Work"].Value = originalEstimateEffort;
                 }
