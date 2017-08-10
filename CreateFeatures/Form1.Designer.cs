@@ -29,14 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.createFeaturesButton = new System.Windows.Forms.Button();
-            this.getIdsButton = new System.Windows.Forms.Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.RequestId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FeatureAreaPath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FeatureIncrementPath = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,8 +41,14 @@
             this.FeatureEstimatedEffort = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewImageColumn();
             this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.createFeaturesButton = new System.Windows.Forms.Button();
+            this.getIdsButton = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.titleToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -80,49 +81,12 @@
             this.dataGridView1.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView1_UserAddedRow);
             this.dataGridView1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyUp);
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 48);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1562, 553);
-            this.panel1.TabIndex = 1;
-            // 
-            // createFeaturesButton
-            // 
-            this.createFeaturesButton.Location = new System.Drawing.Point(150, 5);
-            this.createFeaturesButton.Name = "createFeaturesButton";
-            this.createFeaturesButton.Size = new System.Drawing.Size(111, 37);
-            this.createFeaturesButton.TabIndex = 2;
-            this.createFeaturesButton.Text = "Create Features";
-            this.createFeaturesButton.UseVisualStyleBackColor = true;
-            this.createFeaturesButton.Click += new System.EventHandler(this.createFeaturesButton_Click);
-            // 
-            // getIdsButton
-            // 
-            this.getIdsButton.Location = new System.Drawing.Point(21, 5);
-            this.getIdsButton.Name = "getIdsButton";
-            this.getIdsButton.Size = new System.Drawing.Size(111, 37);
-            this.getIdsButton.TabIndex = 3;
-            this.getIdsButton.Text = "Get Request Ids...";
-            this.getIdsButton.UseVisualStyleBackColor = true;
-            this.getIdsButton.Click += new System.EventHandler(this.getIdsButton_Click);
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "Status";
-            this.dataGridViewImageColumn1.Image = global::CreateFeatures.Properties.Resources.NO;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Width = 50;
-            // 
             // RequestId
             // 
             this.RequestId.DataPropertyName = "AreaPathData";
-            dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = null;
-            this.RequestId.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Format = "N0";
+            dataGridViewCellStyle3.NullValue = null;
+            this.RequestId.DefaultCellStyle = dataGridViewCellStyle3;
             this.RequestId.HeaderText = "Request Id";
             this.RequestId.Name = "RequestId";
             this.RequestId.ReadOnly = true;
@@ -177,6 +141,43 @@
             this.Comment.ReadOnly = true;
             this.Comment.Width = 200;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 48);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1562, 553);
+            this.panel1.TabIndex = 1;
+            // 
+            // createFeaturesButton
+            // 
+            this.createFeaturesButton.Location = new System.Drawing.Point(150, 5);
+            this.createFeaturesButton.Name = "createFeaturesButton";
+            this.createFeaturesButton.Size = new System.Drawing.Size(111, 37);
+            this.createFeaturesButton.TabIndex = 2;
+            this.createFeaturesButton.Text = "Create Features";
+            this.createFeaturesButton.UseVisualStyleBackColor = true;
+            this.createFeaturesButton.Click += new System.EventHandler(this.createFeaturesButton_Click);
+            // 
+            // getIdsButton
+            // 
+            this.getIdsButton.Location = new System.Drawing.Point(21, 5);
+            this.getIdsButton.Name = "getIdsButton";
+            this.getIdsButton.Size = new System.Drawing.Size(111, 37);
+            this.getIdsButton.TabIndex = 3;
+            this.getIdsButton.Text = "Get Request Ids...";
+            this.getIdsButton.UseVisualStyleBackColor = true;
+            this.getIdsButton.Click += new System.EventHandler(this.getIdsButton_Click);
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "Status";
+            this.dataGridViewImageColumn1.Image = global::CreateFeatures.Properties.Resources.NO;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Width = 50;
+            // 
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(294, 12);
@@ -186,6 +187,11 @@
             this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progressBar1.TabIndex = 4;
             this.progressBar1.Visible = false;
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
             // Form1
             // 
@@ -225,6 +231,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Comment;
         private System.Windows.Forms.ToolTip titleToolTip;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 

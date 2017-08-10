@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace CreateFeatures
@@ -12,6 +13,24 @@ namespace CreateFeatures
         readonly Image m_ImageNo = new Bitmap(Properties.Resources.NO, 20, 20);
         readonly Image m_ImageYes = new Bitmap(Properties.Resources.YES, 20, 20);
         readonly Image m_ImageWorking = new Bitmap(Properties.Resources.WORKING, 20, 20);
+
+        delegate void InitTfsHandler();
+        private void InitializeTfsHandler()
+        {
+            // InvokeRequired required compares the thread ID of the
+            // calling thread to the thread ID of the creating thread.
+            // If these threads are different, it returns true.
+            if (this.InvokeRequired)
+            {
+                var d = new InitTfsHandler(InitializeTfsHandler);
+                this.Invoke(d, new object[] { });
+            }
+            else
+            {
+                m_TfsHandler = m_TfsHandler ?? new TfsHandler(GetLastSavedValue("TfsUri", "https://venus.tfs.siemens.net:443/tfs/tia"));
+            }
+        }
+
 
         public Form1()
         {
@@ -93,13 +112,19 @@ namespace CreateFeatures
             List<int> listofIds = frm.GetList();
 
             PopulateDataGridView(listofIds);
+
             if (listofIds.Count > 0)
             {
-                progressBar1.Visible = true;
+                //progressBar1.Visible = true;
                 //TODO: Connect to TFS
+                //backgroundWorker1.RunWorkerAsync(m_TfsHandler);
                 m_TfsHandler = m_TfsHandler ?? new TfsHandler(GetLastSavedValue("TfsUri", "https://venus.tfs.siemens.net:443/tfs/tia"));
             }
-            progressBar1.Visible = false;
+        }
+
+        private void GetTfsHandler(TfsHandler tfsObj)
+        {
+            tfsObj = tfsObj ?? new TfsHandler(GetLastSavedValue("TfsUri", "https://venus.tfs.siemens.net:443/tfs/tia"));
         }
 
         private List<string> GetListOfIds()
@@ -244,6 +269,7 @@ namespace CreateFeatures
 
         private void dataGridView1_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
+            if (m_TfsHandler == null) return;
             if (e.ColumnIndex >= 1 && e.ColumnIndex <= 4)
             {
                 if (e.RowIndex >= 0)
@@ -270,6 +296,22 @@ namespace CreateFeatures
                     dataGridView1.ShowCellToolTips = false;
                 }
             }
+        }
+
+        private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            var tfsObj = e.Argument as TfsHandler;
+
+            progressBar1.Visible = true;
+            dataGridView1.ReadOnly = true;
+            MessageBox.Show($@"Thread: {Thread.CurrentThread.Name}");
+            InitializeTfsHandler();
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            dataGridView1.ReadOnly = false;
+            progressBar1.Visible = false;
         }
     }
 }
