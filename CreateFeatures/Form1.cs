@@ -115,10 +115,18 @@ namespace CreateFeatures
 
             if (listofIds.Count > 0)
             {
+                this.Enabled = false;
                 //progressBar1.Visible = true;
                 //TODO: Connect to TFS
                 //backgroundWorker1.RunWorkerAsync(m_TfsHandler);
                 m_TfsHandler = m_TfsHandler ?? new TfsHandler(GetLastSavedValue("TfsUri", "https://venus.tfs.siemens.net:443/tfs/tia"));
+                foreach (int id in listofIds)
+                {
+                    string title = m_TfsHandler.GetWorkItemTitle(id);
+                    m_TitlesDictionary.Add(id, title);
+                }
+                this.Enabled = true;
+                createFeaturesButton.Enabled = true;
             }
         }
 
@@ -269,8 +277,13 @@ namespace CreateFeatures
 
         private void dataGridView1_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void dataGridView1_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
+        {
             if (m_TfsHandler == null) return;
-            if (e.ColumnIndex >= 1 && e.ColumnIndex <= 4)
+            if (e.ColumnIndex >= 1 && e.ColumnIndex <= 2)
             {
                 if (e.RowIndex >= 0)
                 {
@@ -286,16 +299,22 @@ namespace CreateFeatures
                         m_TitlesDictionary.Add(rqId, title);
                     }
                     var cellDisplayRect = dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false);
-                    titleToolTip.Show(m_TitlesDictionary[rqId],
+                    titleToolTip.Show($"({Cursor.Position.X},{Cursor.Position.Y})({MousePosition.X},{MousePosition.Y}): {m_TitlesDictionary[rqId]}",
                         dataGridView1,
                         //MousePosition.X + 1,
                         //MousePosition.Y + 1,
-                        cellDisplayRect.X + cellDisplayRect.Width / 3,
-                        cellDisplayRect.Y + cellDisplayRect.Height / 3,
+                        //cellDisplayRect.X + cellDisplayRect.Width / 3,
+                        //cellDisplayRect.Y + cellDisplayRect.Height / 3,
+                        new Point(Cursor.Position.X - 100, Cursor.Position.Y - 195), //new Point(lblRevisionQuestion.Left + e.X + 1, lblRevisionQuestion.Top + e.Y + 1)
                         5000);
                     dataGridView1.ShowCellToolTips = false;
                 }
             }
+        }
+
+        private void dataGridView1_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            titleToolTip.Hide(dataGridView1);
         }
 
         private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
@@ -312,6 +331,31 @@ namespace CreateFeatures
         {
             dataGridView1.ReadOnly = false;
             progressBar1.Visible = false;
+        }
+
+        private void dataGridView1_MouseMove(object sender, MouseEventArgs e)
+        {
+        }
+
+        private void dataGridView1_MouseLeave(object sender, EventArgs e)
+        {
+        }
+
+        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (m_TfsHandler == null) return;
+            string idd = dataGridView1.Rows[e.RowIndex].Cells[0].Value as string;
+            int rqId;
+            if (!Int32.TryParse(idd, out rqId))
+            {
+                return;
+            }
+            if (!m_TitlesDictionary.ContainsKey(rqId))
+            {
+                string title = m_TfsHandler.GetWorkItemTitle(rqId);
+                m_TitlesDictionary.Add(rqId, title);
+            }
+            label1.Text = $"{rqId} : {m_TitlesDictionary[rqId]}";
         }
     }
 }

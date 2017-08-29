@@ -62,9 +62,12 @@ namespace CreateFeatures
                 WorkItem targetWorkItem = m_WorkItemStore.GetWorkItem(target);
                 if (targetWorkItem.Type.Name == "Feature")
                 {
-                    Console.WriteLine($"The Request {id} has already linked Feature = {target}");
-                    comment = $"-->{target}(F) ";
-                    linkedfeaturesalready = true;
+                    if (targetWorkItem.AreaPath == areaPath)
+                    {
+                        Console.WriteLine($"The Request {id} has already linked Feature = {target}");
+                        comment = $"-->{target}(F) ";
+                        linkedfeaturesalready = true;
+                    }
                 }
             }
             if (linkedfeaturesalready)
@@ -179,7 +182,7 @@ namespace CreateFeatures
             try
             {
                 WorkItem workItem = m_WorkItemStore.GetWorkItem(id);
-                return workItem.Title;
+                return $"Sev {workItem.Fields["Severity"].Value}: {workItem.Title} / {workItem.Fields["Assigned To"].Value}";
             }
             catch (Exception e)
             {

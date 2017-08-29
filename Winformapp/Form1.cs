@@ -30,6 +30,8 @@ namespace Winformapp
             {
                 MessageBox.Show($@"InitializeTfsHandler, InvokeNotRequired, Thread: {Thread.CurrentThread.Name}");
                 m_TfsHandler = m_TfsHandler ?? "Hello Hello Hello";
+                progressBar1.Visible = false;
+
             }
         }
 
@@ -60,6 +62,7 @@ namespace Winformapp
         {
             MessageBox.Show($@"Click, Thread: {Thread.CurrentThread.Name}");
             backgroundWorker1.RunWorkerAsync();
+            progressBar1.Visible = true;
         }
     }
 }
