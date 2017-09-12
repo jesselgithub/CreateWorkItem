@@ -120,10 +120,15 @@ namespace CreateFeatures
                 //TODO: Connect to TFS
                 //backgroundWorker1.RunWorkerAsync(m_TfsHandler);
                 m_TfsHandler = m_TfsHandler ?? new TfsHandler(GetLastSavedValue("TfsUri", "https://venus.tfs.siemens.net:443/tfs/tia"));
+                m_TitlesDictionary.Clear();
+
                 foreach (int id in listofIds)
                 {
                     string title = m_TfsHandler.GetWorkItemTitle(id);
-                    m_TitlesDictionary.Add(id, title);
+                    if (!m_TitlesDictionary.ContainsKey(id))
+                    {
+                        m_TitlesDictionary.Add(id, title);
+                    }
                 }
                 this.Enabled = true;
                 createFeaturesButton.Enabled = true;
