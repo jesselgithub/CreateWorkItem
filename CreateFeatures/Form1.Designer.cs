@@ -32,6 +32,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.createFeaturesButton = new System.Windows.Forms.Button();
+            this.getIdsButton = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.titleToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.RequestId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FeatureAreaPath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FeatureIncrementPath = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,15 +50,6 @@
             this.FeatureEstimatedEffort = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewImageColumn();
             this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.createFeaturesButton = new System.Windows.Forms.Button();
-            this.getIdsButton = new System.Windows.Forms.Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.titleToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -86,66 +86,6 @@
             this.dataGridView1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyUp);
             this.dataGridView1.MouseLeave += new System.EventHandler(this.dataGridView1_MouseLeave);
             this.dataGridView1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseMove);
-            // 
-            // RequestId
-            // 
-            this.RequestId.DataPropertyName = "AreaPathData";
-            dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = null;
-            this.RequestId.DefaultCellStyle = dataGridViewCellStyle1;
-            this.RequestId.HeaderText = "Request Id";
-            this.RequestId.Name = "RequestId";
-            this.RequestId.ReadOnly = true;
-            // 
-            // FeatureAreaPath
-            // 
-            this.FeatureAreaPath.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FeatureAreaPath.HeaderText = "Feature Area Path";
-            this.FeatureAreaPath.Name = "FeatureAreaPath";
-            this.FeatureAreaPath.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // FeatureIncrementPath
-            // 
-            this.FeatureIncrementPath.DataPropertyName = "IncData";
-            this.FeatureIncrementPath.HeaderText = "Feature Increment Path";
-            this.FeatureIncrementPath.Name = "FeatureIncrementPath";
-            this.FeatureIncrementPath.Width = 225;
-            // 
-            // AssignedTo
-            // 
-            this.AssignedTo.HeaderText = "Assigned To";
-            this.AssignedTo.Name = "AssignedTo";
-            this.AssignedTo.Width = 250;
-            // 
-            // FeatureParent
-            // 
-            this.FeatureParent.HeaderText = "Feature Parent";
-            this.FeatureParent.Name = "FeatureParent";
-            // 
-            // CreateTask
-            // 
-            this.CreateTask.HeaderText = "Create Task In Downtrace";
-            this.CreateTask.Name = "CreateTask";
-            // 
-            // FeatureEstimatedEffort
-            // 
-            this.FeatureEstimatedEffort.HeaderText = "Feature Estimated Effort";
-            this.FeatureEstimatedEffort.Name = "FeatureEstimatedEffort";
-            // 
-            // Status
-            // 
-            this.Status.HeaderText = "Status";
-            this.Status.Image = global::CreateFeatures.Properties.Resources.NO;
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            this.Status.Width = 50;
-            // 
-            // Comment
-            // 
-            this.Comment.HeaderText = "Comment";
-            this.Comment.Name = "Comment";
-            this.Comment.ReadOnly = true;
-            this.Comment.Width = 200;
             // 
             // panel1
             // 
@@ -200,19 +140,91 @@
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
-            // label1
+            // textBox1
             // 
-            this.label1.Location = new System.Drawing.Point(279, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(865, 13);
-            this.label1.TabIndex = 5;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.2F);
+            this.textBox1.Location = new System.Drawing.Point(279, 16);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(858, 13);
+            this.textBox1.TabIndex = 5;
+            // 
+            // RequestId
+            // 
+            this.RequestId.DataPropertyName = "AreaPathData";
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = null;
+            this.RequestId.DefaultCellStyle = dataGridViewCellStyle1;
+            this.RequestId.HeaderText = "Request Id";
+            this.RequestId.Name = "RequestId";
+            this.RequestId.ReadOnly = true;
+            this.RequestId.ToolTipText = "The RQ Ids";
+            // 
+            // FeatureAreaPath
+            // 
+            this.FeatureAreaPath.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FeatureAreaPath.HeaderText = "Feature/Task - Area Path";
+            this.FeatureAreaPath.Name = "FeatureAreaPath";
+            this.FeatureAreaPath.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.FeatureAreaPath.ToolTipText = "Area Path. (Last changed value will be remembered for next execution of this tool" +
+    ".)";
+            // 
+            // FeatureIncrementPath
+            // 
+            this.FeatureIncrementPath.DataPropertyName = "IncData";
+            this.FeatureIncrementPath.HeaderText = "Feature/Task - Increment Path";
+            this.FeatureIncrementPath.Name = "FeatureIncrementPath";
+            this.FeatureIncrementPath.ToolTipText = "Inc Path. (Last changed value will be remembered for next execution of this tool." +
+    ")";
+            this.FeatureIncrementPath.Width = 225;
+            // 
+            // AssignedTo
+            // 
+            this.AssignedTo.HeaderText = "Feature/Task -Assigned To";
+            this.AssignedTo.Name = "AssignedTo";
+            this.AssignedTo.ToolTipText = "The Linked Feature will be assigned to this person. (Last changed value will be r" +
+    "emembered for next execution of this tool.)";
+            this.AssignedTo.Width = 250;
+            // 
+            // FeatureParent
+            // 
+            this.FeatureParent.HeaderText = "Feature Parent";
+            this.FeatureParent.Name = "FeatureParent";
+            this.FeatureParent.ToolTipText = "The Root Feature/Requirement ID (Optional)";
+            // 
+            // CreateTask
+            // 
+            this.CreateTask.HeaderText = "Create Task In Downtrace";
+            this.CreateTask.Name = "CreateTask";
+            this.CreateTask.ToolTipText = "Check to create Task of Type Analysis in Downtraces of Feature";
+            // 
+            // FeatureEstimatedEffort
+            // 
+            this.FeatureEstimatedEffort.HeaderText = "Feature Estimated Effort";
+            this.FeatureEstimatedEffort.Name = "FeatureEstimatedEffort";
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "Status";
+            this.Status.Image = global::CreateFeatures.Properties.Resources.NO;
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            this.Status.Width = 50;
+            // 
+            // Comment
+            // 
+            this.Comment.HeaderText = "Info";
+            this.Comment.Name = "Comment";
+            this.Comment.ReadOnly = true;
+            this.Comment.Width = 200;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1562, 601);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.getIdsButton);
             this.Controls.Add(this.createFeaturesButton);
@@ -224,6 +236,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -235,6 +248,10 @@
         private System.Windows.Forms.Button getIdsButton;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.ToolTip titleToolTip;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn RequestId;
         private System.Windows.Forms.DataGridViewTextBoxColumn FeatureAreaPath;
         private System.Windows.Forms.DataGridViewTextBoxColumn FeatureIncrementPath;
@@ -244,10 +261,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FeatureEstimatedEffort;
         private System.Windows.Forms.DataGridViewImageColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn Comment;
-        private System.Windows.Forms.ToolTip titleToolTip;
-        private System.Windows.Forms.ProgressBar progressBar1;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.Label label1;
     }
 }
 

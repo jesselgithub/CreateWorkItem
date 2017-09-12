@@ -282,6 +282,7 @@ namespace CreateFeatures
 
         private void dataGridView1_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
+            /*
             if (m_TfsHandler == null) return;
             if (e.ColumnIndex >= 1 && e.ColumnIndex <= 2)
             {
@@ -307,9 +308,10 @@ namespace CreateFeatures
                         //cellDisplayRect.Y + cellDisplayRect.Height / 3,
                         new Point(Cursor.Position.X - 100, Cursor.Position.Y - 195), //new Point(lblRevisionQuestion.Left + e.X + 1, lblRevisionQuestion.Top + e.Y + 1)
                         5000);
-                    dataGridView1.ShowCellToolTips = false;
+                    //dataGridView1.ShowCellToolTips = false;
                 }
             }
+            */
         }
 
         private void dataGridView1_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
@@ -355,7 +357,7 @@ namespace CreateFeatures
                 string title = m_TfsHandler.GetWorkItemTitle(rqId);
                 m_TitlesDictionary.Add(rqId, title);
             }
-            label1.Text = $"{rqId} : {m_TitlesDictionary[rqId]}";
+            textBox1.Text = $"{rqId} : {m_TitlesDictionary[rqId]}";
         }
     }
 }
